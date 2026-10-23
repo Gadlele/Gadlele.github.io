@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gadlele FM-1 Firmware</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Three firmwares for the M-VAVE FM-1 by Gadlele: Fantasma, Golana and Ditto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;700&family=Public+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one quiet hub, three cards side by side, each one opening on its own firmware's splash screen and colours. */
+:root {
+  --bg: #e9e8e4;
+  --ink: #1d1e22;
+  --mid: #5d5f66;
+  --rule: #c9c7c0;
+  --card: #f6f5f2;
+  --link: #1d1e22;
+  --display: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --body: "Public Sans", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #121317; --ink: #ecebe7; --mid: #9a9ca4; --rule: #2c2e35; --card: #1a1b20; --link: #ecebe7; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #121317; --ink: #ecebe7; --mid: #9a9ca4; --rule: #2c2e35; --card: #1a1b20; --link: #ecebe7; color-scheme: dark; }
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font: 400 16px/1.55 var(--body); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: clamp(32px, 7vw, 72px) 40px;
+        padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+header { display: grid; gap: 10px; margin-bottom: clamp(28px, 5vw, 48px); }
+.eyebrow { font: 500 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--mid); }
+h1 { font: 700 clamp(40px, 7vw, 68px)/1 var(--display); letter-spacing: -.02em; margin: 0; text-wrap: balance; }
+.intro { max-width: 62ch; color: var(--mid); margin: 6px 0 0; }
+
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 900px) { .grid { grid-template-columns: minmax(0, 1fr); max-width: 520px; } }
+
+.fw { display: grid; grid-template-rows: auto 1fr; background: var(--card); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; min-width: 0; }
+.screen { background: var(--scr, var(--s)); display: grid; place-items: center; padding: 22px; border-bottom: 4px solid var(--a); }
+.screen img { width: 100%; max-width: 240px; aspect-ratio: 1; display: block; image-rendering: auto; }
+.body { display: grid; grid-template-rows: auto auto 1fr auto; gap: 10px; padding: 20px 20px 22px; }
+.fw h2 { font: 700 28px/1.1 var(--display); margin: 0; letter-spacing: -.01em; }
+.spec { font: 400 12.5px/1.4 var(--mono); color: var(--mid); }
+.fw p { margin: 0; }
+.links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.links a { font: 600 13.5px/1 var(--body); text-decoration: none; color: var(--link); padding: 10px 11px; border: 1px solid var(--rule); border-radius: 4px; }
+.links a.main { background: var(--s); color: var(--on); border-color: var(--s); }
+.links a:hover { border-color: var(--a); }
+.links a.main:hover { box-shadow: inset 0 -3px 0 var(--a); }
+.links a:focus-visible { outline: 2px solid var(--a); outline-offset: 2px; }
+
+/* each firmware's own colours, from its site */
+.fantasma { --s: #000408; --a: #3af3ff; --on: #efffff; }
+.golana   { --scr: #081019; --s: #0e1118; --a: #ffb547; --on: #e8e6e1; }
+.ditto    { --scr: #183468; --s: #1c346e; --a: #96a840; --on: #f3f1ea; }
+
+footer { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--rule); color: var(--mid); font-size: 13.5px; display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: space-between; }
+footer a { color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Firmware for the M-VAVE FM-1</span>
+    <h1>Gadlele</h1>
+    <p class="intro">Three new instruments for the same small box. Each one replaces the FM-1's firmware, installs from
+      the browser over USB in Chrome or Edge, and can be tried first in an emulator on its website.</p>
+  </header>
+
+  <main class="grid">
+    <article class="fw fantasma">
+      <div class="screen"><img src="img/fantasma.gif" alt="Fantasma's power-on: a neon ghost" width="240" height="240"></div>
+      <div class="body">
+        <h2>Fantasma</h2>
+        <span class="spec">13 engines · ambient machine · 64-step sequencer</span>
+        <p>A ghostly, ambient synth: drones, bells, rain and Omnichord chords, in a neon skin.</p>
+        <div class="links">
+          <a class="main" href="https://gadlele.github.io/Fantasma/">Website</a>
+          <a href="https://gadlele.github.io/Fantasma/try/">Try it</a>
+          <a href="https://gadlele.github.io/Fantasma/install/">Install</a>
+          <a href="https://github.com/Gadlele/Fantasma">GitHub</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="fw golana">
+      <div class="screen"><img src="img/golana.gif" alt="Golana's power-on: its name over the eighties' stripes" width="240" height="240"></div>
+      <div class="body">
+        <h2>Golana</h2>
+        <span class="spec">2 oscillators · 5 filters · patch bay · 16 steps</span>
+        <p>One analog-style synth laid out like the classic microKORG, with a screen that draws the sound.</p>
+        <div class="links">
+          <a class="main" href="https://gadlele.github.io/Golana/">Website</a>
+          <a href="https://gadlele.github.io/Golana/try/">Try it</a>
+          <a href="https://gadlele.github.io/Golana/install/">Install</a>
+          <a href="https://github.com/Gadlele/Golana">GitHub</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="fw ditto">
+      <div class="screen"><img src="img/ditto.gif" alt="Ditto's power-on: a record turns, the tone arm sets down" width="240" height="240"></div>
+      <div class="body">
+        <h2>Ditto</h2>
+        <span class="spec">8-bit μ-law · 16 sounds · 3 user slots</span>
+        <p>An eighties sampler after the E-mu Emulator II, as dry as it was. Bring your own sounds from the browser.</p>
+        <div class="links">
+          <a class="main" href="https://gadlele.github.io/Ditto/">Website</a>
+          <a href="https://gadlele.github.io/Ditto/try/">Try it</a>
+          <a href="https://gadlele.github.io/Ditto/install/">Install</a>
+          <a href="https://github.com/Gadlele/Ditto">GitHub</a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <span>All three are forks of <a href="https://github.com/hugelton/Felucca">Felucca</a>, under GPL-3.0.</span>
+    <span>M-VAVE and FM-1 are trademarks of their respective owners.</span>
+  </footer>
+</div>
+</body>
+</html>
