@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Gadlele FM-1 Firmware</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Two firmwares for the M-VAVE FM-1 by Gadlele: Fantasma and Golana.">
+<meta name="description" content="Three firmwares for the M-VAVE FM-1 by Gadlele: Fantasma, Golana and COSMOS.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;700&family=Public+Sans:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: one quiet hub, two cards side by side, each one opening on its own firmware's splash screen and colours. */
+/* Layout: one quiet hub, the cards side by side, each one opening on its own firmware's splash screen and colours. */
 :root {
   --bg: #e9e8e4;
   --ink: #1d1e22;
@@ -38,8 +38,9 @@ header { display: grid; gap: 10px; margin-bottom: clamp(28px, 5vw, 48px); }
 h1 { font: 700 clamp(40px, 7vw, 68px)/1 var(--display); letter-spacing: -.02em; margin: 0; text-wrap: balance; }
 .intro { max-width: 62ch; color: var(--mid); margin: 6px 0 0; }
 
-.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-@media (max-width: 700px) { .grid { grid-template-columns: minmax(0, 1fr); max-width: 520px; } }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 860px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .grid { grid-template-columns: minmax(0, 1fr); max-width: 520px; } }
 
 .fw { display: grid; grid-template-rows: auto 1fr; background: var(--card); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; min-width: 0; }
 .screen { background: var(--scr, var(--s)); display: grid; place-items: center; padding: 22px; border-bottom: 4px solid var(--a); }
@@ -58,6 +59,9 @@ h1 { font: 700 clamp(40px, 7vw, 68px)/1 var(--display); letter-spacing: -.02em; 
 /* each firmware's own colours, from its site */
 .fantasma { --s: #000408; --a: #3af3ff; --on: #efffff; }
 .golana   { --scr: #081019; --s: #0e1118; --a: #ffb547; --on: #e8e6e1; }
+.cosmos   { --scr: #000000; --s: #06080e; --a: #cfd8ff; --on: #e9ecf5; }
+.screen img.pixel { image-rendering: pixelated; }
+.soon { font: 500 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--mid); border: 1px solid var(--rule); border-radius: 99px; padding: 3px 8px; margin-left: 10px; vertical-align: 6px; white-space: nowrap; display: inline-block; }
 
 .tip { margin-top: 44px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; }
 .tip p { margin: 0; max-width: 60ch; font: 500 clamp(18px, 2.2vw, 21px)/1.4 var(--display); text-wrap: balance; }
@@ -74,7 +78,7 @@ footer a { color: var(--ink); }
   <header>
     <span class="eyebrow">Firmware for the M-VAVE FM-1</span>
     <h1>Gadlele</h1>
-    <p class="intro">Two new instruments for the same small box. Each one replaces the FM-1's firmware, installs from
+    <p class="intro">Three new instruments for the same small box. Each one replaces the FM-1's firmware, installs from
       the browser over USB in Chrome or Edge, and can be tried first in an emulator on its website.</p>
   </header>
 
@@ -109,16 +113,31 @@ footer a { color: var(--ink); }
       </div>
     </article>
 
+    <article class="fw cosmos">
+      <div class="screen"><img class="pixel" src="img/cosmos.gif" alt="COSMOS's screen: the real sky over Rome, its readings fading in and out" width="240" height="240"></div>
+      <div class="body">
+        <h2>COSMOS<span class="soon">in the making</span></h2>
+        <span class="spec">2 drones · 5 sources from the sky · planets as voices</span>
+        <p>A drone synth played by the sky: the sun, the clouds, the pressure, the Kp index and the moon shape the sound, over the real stars above you.</p>
+        <div class="links">
+          <a class="main" href="https://gadlele.github.io/COSMOS/">Website</a>
+          <a href="https://gadlele.github.io/COSMOS/try/">Try it</a>
+          <a href="https://gadlele.github.io/COSMOS/install/">Install</a>
+          <a href="https://github.com/Gadlele/COSMOS">GitHub</a>
+        </div>
+      </div>
+    </article>
+
   </main>
 
   <section class="tip">
-    <p>Both are free and always will be. If one of them has found its way into your music, you can buy me a coffee:
+    <p>All of them are free and always will be. If one of them has found its way into your music, you can buy me a coffee:
       it keeps the next one coming.</p>
     <a class="kofi" href="https://ko-fi.com/gadlele">Support me on Ko-fi</a>
   </section>
 
   <footer>
-    <span>Both are forks of <a href="https://github.com/hugelton/Felucca">Felucca</a>, under GPL-3.0.</span>
+    <span>All of them come from <a href="https://github.com/hugelton/Felucca">Felucca</a>, under GPL-3.0.</span>
     <span>M-VAVE and FM-1 are trademarks of their respective owners.</span>
   </footer>
 </div>
